@@ -26,13 +26,8 @@ const card = () => {
     return (
         //@ts-ignore
         storeList.map((store) => (
-          <TinderCard
-            // className='swipe'
-            // key={store.name}
-            onSwipe={onSwipe}
-            onCardLeftScreen={() => onCardLeftScreen('fooBar')}
-            preventSwipe={['right', 'left']}
-          >
+          //@ts-ignore
+          <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>  
             <Store
               name={store.name}
               text={store.text}
@@ -42,8 +37,8 @@ const card = () => {
 
         // <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
         //     <Store
-        //       name={storeList[0]}
-        //       text={storeList[1]} 
+        //       name={storeList[0].name}
+        //       text={storeList[0].text} 
         //     ></Store>
         // </TinderCard>
     )
