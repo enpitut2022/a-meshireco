@@ -1,4 +1,5 @@
 import TinderCard from 'react-tinder-card'
+import Store from './store'
 
 // ...
 
@@ -15,7 +16,9 @@ const card = () => {
 
     return (
         //@ts-ignore
-        <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>Hello, World!</TinderCard>
+        <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
+            <Store></Store>
+        </TinderCard>
     )
 }
 

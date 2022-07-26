@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <h1>メシレコ</h1>
-      <Store></Store>
       <Card></Card>
 
     </div>
