@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <h1>メシレコ</h1>
       <Card></Card>
-
     </div>
   )
 }
