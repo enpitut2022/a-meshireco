@@ -6,7 +6,9 @@ interface StoreProps {
   map: string;
   tabeLog: string;
   image: string;
-  category: number; 
+  category: number;
+  latitude: number;
+  longitude: number;
 }
 
 //ジャンル一覧

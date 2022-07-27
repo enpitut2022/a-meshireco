@@ -60,6 +60,8 @@ const cards = () => {
             tabeLog = {store.tabeLog}
             image = {store.image}
             category = {store.category}
+            latitude = {store.latitude || 0}
+            longitude = {store.longitude || 0}
           ></Store>
         </TinderCard>
       ))}

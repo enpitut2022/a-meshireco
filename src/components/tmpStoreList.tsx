@@ -7,6 +7,8 @@ export interface store {
   tabeLog: string;
   image: string;
   category: number; // 0->居酒屋, 1->カフェ, 2->ファミレス, 3->麺類, 4->学食, 5->中華, 6->イタリアン, 7->フレンチ, 8->和食
+  latitude?: number;
+  longitude?: number;
 }
 
 export const tmpStoreList: Array<store> = [
