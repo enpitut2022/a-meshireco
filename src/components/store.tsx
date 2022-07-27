@@ -1,8 +1,8 @@
 interface StoreProps {
-  name: string
-  openTime: string
-  closeTime: string
-  price: number
+  name: string;
+  openTime: string;
+  closeTime: string;
+  price: number;
   map: string;
   tabeLog: string;
   image: string;
