@@ -2,16 +2,21 @@ import React, { useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
-import store from './store';
 
 interface store {
   name: string;
-  text: string;
+  openTime: string;
+  closeTime: string;
+  price: number; // 3->3000 ~ 4000
+  map: string;
+  tabeLog: string;
+  image: string;
+  category: number; // 0->居酒屋, 1->カフェ, 2->チェーン, 
 }
 
 const storeList: Array<store> = [
-  { name: '粉とクリーム', text: 'aaa' },
-  { name: 'むじゃき', text: 'bbb' },
+  { name: '粉とクリーム', openTime: '8:00', closeTime: '12:00', price: 1, map: 'https://goo.gl/maps/3x1kDyuCGGpPbAxH8', tabeLog: 'url', image: "https://kosei.sec.tsukuba.ac.jp/wp-content/uploads/P1050398.jpg", category: 1 },
+  { name: '粉とクリーム2', openTime: '17:00', closeTime: '24:00', price: 2, map: 'url', tabeLog: 'url', image: "https://kosei.sec.tsukuba.ac.jp/wp-content/uploads/P1050398.jpg", category: 2 },
 ]
 
 // リストの先頭が下に来てしまうため逆順にしておく
@@ -50,7 +55,13 @@ const cards = () => {
             preventSwipe = {['right', 'left', 'down']}>
             <Store
               name = {store.name}
-              text = {store.text}
+              openTime = {store.openTime}
+              closeTime = {store.closeTime}
+              price = {store.price}
+              map = {store.map}
+              tabeLog = {store.tabeLog}
+              image = {store.image}
+              category = {store.category}
             ></Store>
           </TinderCard>
       ))}
