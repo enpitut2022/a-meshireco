@@ -7,7 +7,7 @@ interface StoreProps {
   // closeTime: string
 }
 
-//@ts-ignore
+// @ts-ignore
 const store = (props: StoreProps) => {
   return(
     <div>
