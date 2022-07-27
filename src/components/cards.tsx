@@ -10,11 +10,14 @@ import './tmpStoreList'
 // コメントアウトして切り替えられる
 //
 //--------------------------------------------------------------
+
 // つくばの店ごっちゃデータ
 // import {tmpStoreList, store} from './tmpStoreList'
 
 // 大学の昼休みに行けそうな店のデータ
 import {tmpStoreList, store} from './tmpTsukubaLunchList'
+
+//--------------------------------------------------------------
 
 const storeList: Array<store> = tmpStoreList 
 
