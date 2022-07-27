@@ -3,7 +3,7 @@ import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
 import './tmpStoreList'
-import tmpStoreList from './tmpStoreList'
+import {tmpStoreList, store} from './tmpStoreList'
 
 const storeList: Array<store> = tmpStoreList 
 
