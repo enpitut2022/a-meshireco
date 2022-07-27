@@ -13,8 +13,6 @@
 	top: 0px;
 	left: 0px;
 
-  z-index: 1;
-
   /* TODO スマホサイズにする */
   height: 1000px;
   width: 1000px;
@@ -22,8 +20,3 @@
 	padding: 10px;
 	background-color: orange;
 }
-
-/* .tinderCard {
-	background-color: white;
-  color: black;
-} */

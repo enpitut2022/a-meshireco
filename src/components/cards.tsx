@@ -1,10 +1,9 @@
-import React, { useRef, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
 import store from './store';
 
-// ...
 interface store {
   name: string;
   text: string;
