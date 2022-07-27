@@ -2,7 +2,6 @@ import React, { useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
-import store from './store';
 
 interface store {
   name: string;
@@ -14,8 +13,18 @@ const storeList: Array<store> = [
   { name: 'むじゃき', text: 'bbb' },
 ]
 
+// 受け取ったリストをシャッフルする
+const shuffleArray = ([...array]) => {
+	for (let i = array.length - 1; i >= 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+}
+const storeListShaffled: Array<store> = shuffleArray(storeList)
+
 // リストの先頭が下に来てしまうため逆順にしておく
-const storeListRiverse: Array<store> = storeList.reverse()
+const storeListRiverse: Array<store> = storeListShaffled.reverse()
 
 const cards = () => {
 
