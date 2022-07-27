@@ -15,6 +15,9 @@ const storeList: Array<store> = [
   { name: 'むじゃき', text: 'bbb' },
 ]
 
+// リストの先頭が下に来てしまうため逆順にしておく
+const storeListRiverse: Array<store> = storeList.reverse()
+
 const cards = () => {
 
   const childRef = useMemo<any>(
@@ -35,10 +38,12 @@ const cards = () => {
 
   return (
     <div className='cards'>
-      {storeList.map((store, index) => (
-        <div className = 'card' style = {{zIndex: - index}}>
+      {storeListRiverse.map((store, index) => (
+          // @ts-ignore
           <TinderCard
-            className='tinderCard'
+            className='card'
+            // TODO リストのリバースをせずcssで実装したい
+            // style = {{zIndex: - index}}
             ref = {childRef[index]}
             key = {index}
             onSwipe = {onSwipe}
@@ -49,7 +54,6 @@ const cards = () => {
               text = {store.text}
             ></Store>
           </TinderCard>
-        </div>
       ))}
     </div>
   )
