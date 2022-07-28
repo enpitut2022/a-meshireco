@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from './store'
+import Stack from '@mui/material/Stack';
 import '../index.css'
 import './tmpStoreList'
 
@@ -15,19 +16,19 @@ import './tmpStoreList'
 // import {tmpStoreList, store} from './tmpStoreList'
 
 // 大学の昼休みに行けそうな店のデータ
-import {tmpStoreList, store} from './tmpTsukubaLunchList'
+import { tmpStoreList, store } from './tmpTsukubaLunchList'
 
 //--------------------------------------------------------------
 
-const storeList: Array<store> = tmpStoreList 
+const storeList: Array<store> = tmpStoreList
 
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
-	for (let i = array.length - 1; i >= 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[array[i], array[j]] = [array[j], array[i]];
-	}
-	return array;
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 const storeListShaffled: Array<store> = shuffleArray(storeList)
 
@@ -53,32 +54,41 @@ const cards = () => {
   }
 
   return (
-    <div className='cards'>
-      {storeListRiverse.map((store, index) => (
-        // @ts-ignore
-        <TinderCard
-          className='card'
-          // TODO リストのリバースをせずcssで実装したい
-          // style = {{zIndex: - index}}
-          ref = {childRef[index]}
-          key = {index}
-          onSwipe = {onSwipe}
-          onCardLeftScreen = {() => onCardLeftScreen('fooBar')}
-          preventSwipe = {['right', 'left', 'down']}>
-          <Store
-            name = {store.name}
-            openTime = {store.openTime}
-            closeTime = {store.closeTime}
-            price = {store.price}
-            map = {store.map}
-            tabeLog = {store.tabeLog}
-            image = {store.image}
-            category = {store.category}
-            
-          ></Store>
-        </TinderCard>
-      ))}
-    </div>
+    // <div className='cards'>
+    <Stack
+      className='cards'
+      direction="row"
+      justifyContent="center"
+      spacing={1}
+    >
+      {
+        storeListRiverse.map((store, index) => (
+          // @ts-ignore
+          <TinderCard
+            className='card'
+            // TODO リストのリバースをせずcssで実装したい
+            // style = {{zIndex: - index}}
+            ref={childRef[index]}
+            key={index}
+            onSwipe={onSwipe}
+            onCardLeftScreen={() => onCardLeftScreen('fooBar')}
+            preventSwipe={['right', 'left', 'down']}>
+            <Store
+              name={store.name}
+              openTime={store.openTime}
+              closeTime={store.closeTime}
+              price={store.price}
+              map={store.map}
+              tabeLog={store.tabeLog}
+              image={store.image}
+              category={store.category}
+
+            ></Store>
+          </TinderCard>
+        ))
+      }
+    </Stack>
+    /* </div > */ 
   )
 }
 
