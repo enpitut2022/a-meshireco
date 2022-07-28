@@ -1,7 +1,7 @@
 .header {
   text-align: center;
   height: 300px;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 body{
@@ -27,7 +27,7 @@ body{
   width: 100%;*/
 
 	padding: 10px;
-	background-color: orange; 
+	background-color: orange;
   border-radius: 5%;
 }
 
