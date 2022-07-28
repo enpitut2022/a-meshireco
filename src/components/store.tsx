@@ -1,7 +1,7 @@
 interface StoreProps {
   name: string;
-  openTime: string;
-  closeTime: string;
+  openTime: number;
+  closeTime: number;
   price: number;
   map: string;
   tabeLog: string;
@@ -11,8 +11,8 @@ interface StoreProps {
   longitude: number;
 }
 
-//ジャンル一覧
-//インデックスがID
+// ジャンル一覧
+// インデックスがID
 const categoryList: Array<string> = [
   '居酒屋',
   'カフェ',
@@ -25,10 +25,10 @@ const categoryList: Array<string> = [
   '和食',
 ]
 
-//価格帯一覧
-//インデックスがID
+// 価格帯一覧
+// インデックスがID
 const priceRangeList: Array<string> = [
-  '0~999',
+  '~999',
   '1000~1999',
   '2000~2999',
   '3000~3999',
@@ -40,13 +40,24 @@ const priceRangeList: Array<string> = [
   '9000~9999',
 ]
 
+// 開店時間はnumberで保持しているので文字列に整形
+const timeToString = (time: number) => {
+	var hour = Math.trunc(time)
+  var minute: any = Math.trunc(60 * (time - hour))
+  if (minute == 0) {
+    minute = '00'
+  }
+  var stringTime = hour + ':' + minute
+	return stringTime;
+}
+
 // @ts-ignore
 const store = (props: StoreProps) => {
   return(
     <div>
       <h2>{props.name}</h2>
-      <p>開店時間：{props.openTime} ~ {props.closeTime}</p>
-      <p>価格帯：{priceRangeList[props.price]}</p>
+      <p>開店時間：{timeToString(props.openTime)} ~ {timeToString(props.closeTime)}</p>
+      <p>価格帯：{priceRangeList[props.price]}円</p>
       <p>
         <a href = {props.map}>GoogleMap</a>
       </p>

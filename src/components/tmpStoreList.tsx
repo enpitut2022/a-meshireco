@@ -1,7 +1,7 @@
 export interface store {
   name: string;
-  openTime: string;
-  closeTime: string;
+  openTime: number;
+  closeTime: number;
   price: number; // 3->3000 ~ 4000
   map: string;
   tabeLog: string;
@@ -14,8 +14,8 @@ export interface store {
 export const tmpStoreList: Array<store> = [
   {
     name: '粉とクリーム',
-    openTime: '09:00',
-    closeTime: '17:00',
+    openTime: 9,
+    closeTime: 17,
     price: 0,
     map: 'https://goo.gl/maps/L7HWWw4tPyM3aq2A8',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8009097/',
@@ -26,8 +26,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'つけめん・まぜそば むじゃき',
-    openTime: '18:00',
-    closeTime: '22:00',
+    openTime: 18,
+    closeTime: 22,
     price: 0,
     map: 'https://goo.gl/maps/aDqnH7xeirV4yumBA',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8020987/',
@@ -38,8 +38,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '筑波大学第２エリア大食堂',
-    openTime: '10:00',
-    closeTime: '15:15',
+    openTime: 10,
+    closeTime: 15.25,
     price: 0,
     map: 'https://goo.gl/maps/3x1kDyuCGGpPbAxH8',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8009104/',
@@ -50,8 +50,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '福軒餃子',
-    openTime: '11:00',
-    closeTime: '22:30',
+    openTime: 11,
+    closeTime: 22.5,
     price: 0,
     map: 'https://goo.gl/maps/pkfUEicKzwiTzKZQA',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8026319/',
@@ -62,8 +62,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'ラーメン清六家　筑波大学店',
-    openTime: '11:00',
-    closeTime: '04:00',
+    openTime: 11,
+    closeTime: 4,
     price: 0,
     map: 'https://goo.gl/maps/cyVMU7kWpPE8TKdk8',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8019177/',
@@ -74,8 +74,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '百香亭　筑波大学店',
-    openTime: '17:00',
-    closeTime: '22:00',
+    openTime: 17,
+    closeTime: 22,
     price: 1,
     map: 'https://goo.gl/maps/HjhLa5XFw54Ympm17',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8002343/',
@@ -86,8 +86,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'ジョイフル つくば桜店',
-    openTime: '9:00',
-    closeTime: '2:00',
+    openTime: 9,
+    closeTime: 2,
     price: 0,
     map: 'https://www.google.com/maps/place/%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%95%E3%83%AB+%E3%81%A4%E3%81%8F%E3%81%B0%E6%A1%9C%E5%BA%97/@36.1120515,140.1126679,17z/data=!3m1!4b1!4m5!3m4!1s0x60220c1b166b2433:0x4d32bcf4c10bfcab!8m2!3d36.1120515!4d140.1126679',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8016744/',
@@ -98,8 +98,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'ココス つくば小野崎店',
-    openTime: '10:00',
-    closeTime: '2:00',
+    openTime: 10,
+    closeTime: 2,
     price: 1,
     map: 'https://goo.gl/maps/uzSwEfnKDjEWpFDT9',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8009783/',
@@ -110,8 +110,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'つくば 蛇の目寿司',
-    openTime: '11:30',
-    closeTime: '14:00',
+    openTime: 11.5,
+    closeTime: 14,
     price: 7,
     map: 'https://goo.gl/maps/knjPP8g4k53TSVdi9',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8002974/',
@@ -122,8 +122,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '鹿児島県霧島市 塚田農場 つくば店',
-    openTime: '17:00',
-    closeTime: '0:00',
+    openTime: 17,
+    closeTime: 0,
     price: 3,
     map: 'https://goo.gl/maps/PvRP7x8XAFMrBhCW6',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8017950/',
@@ -134,8 +134,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '灯禾軒',
-    openTime: '18:00',
-    closeTime: '00:00',
+    openTime: 18,
+    closeTime: 0,
     price: 1,
     map: 'https://goo.gl/maps/2tv2WTSrm9fGXxb8A',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8002971/',
@@ -146,8 +146,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'スシロー つくば学園の森店',
-    openTime: '11:00',
-    closeTime: '23:00',
+    openTime: 11,
+    closeTime: 23,
     price: 1,
     map: 'https://goo.gl/maps/JGNsfvgyUZH22DEF8',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8018289/',
@@ -158,8 +158,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '手羽だるま',
-    openTime: '17:30',
-    closeTime: '1:00',
+    openTime: 17.5,
+    closeTime: 1,
     price: 2,
     map: 'https://g.page/teba_daruma?share',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8022120/',
@@ -170,8 +170,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: 'めしや 益さん',
-    openTime: '11:30',
-    closeTime: '15:00',
+    openTime: 11.5,
+    closeTime: 15,
     price: 1,
     map: 'https://goo.gl/maps/fM5gkxqzvzW4TFdp9',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8016822/',
@@ -182,8 +182,8 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '松乃家',
-    openTime: '11:00',
-    closeTime: '20:00',
+    openTime: 11,
+    closeTime: 20,
     price: 3,
     map: 'https://goo.gl/maps/vVracgSn4p3C72KC9',
     tabeLog: 'https://tabelog.com/ibaraki/A0802/A080201/8000071/',
