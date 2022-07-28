@@ -74,6 +74,7 @@ const cards = () => {
             tabeLog = {store.tabeLog}
             image = {store.image}
             category = {store.category}
+            
           ></Store>
         </TinderCard>
       ))}
