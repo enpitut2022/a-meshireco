@@ -6,7 +6,7 @@ interface StoreProps {
   map: string;
   tabeLog: string;
   image: string;
-  category: number; 
+  category: number;
 }
 
 // ジャンル一覧
@@ -26,7 +26,7 @@ const categoryList: Array<string> = [
 // 価格帯一覧
 // インデックスがID
 const priceRangeList: Array<string> = [
-  '0~999',
+  '~999',
   '1000~1999',
   '2000~2999',
   '3000~3999',
@@ -55,7 +55,7 @@ const store = (props: StoreProps) => {
     <div>
       <h2>{props.name}</h2>
       <p>開店時間：{timeToString(props.openTime)} ~ {timeToString(props.closeTime)}</p>
-      <p>価格帯：{priceRangeList[props.price]}</p>
+      <p>価格帯：{priceRangeList[props.price]}円</p>
       <p>
         <a href = {props.map}>GoogleMap</a>
       </p>
