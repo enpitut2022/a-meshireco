@@ -194,14 +194,14 @@ export const tmpStoreList: Array<store> = [
   },
   {
     name: '横濱ラーメン あさが家',
-    openTime: '',
-    closeTime: '',
-    price: 3,
+    openTime: 11,
+    closeTime: 1,
+    price: 0,
     map: 'https://goo.gl/maps/zdKWvzGTJ6sS1W9u8',
-    tabeLog: '',
-    image: '',
+    tabeLog: 'https://tabelog.com/tokyo/A1319/A131905/13248941/',
+    image: 'https://i1.wp.com/ramental.net/wp-content/uploads/2020/09/asa.jpg?fit=1456%2C760&ssl=1',
     category: 3,
-    latitude: 36.108741,
-    longitude: 140.1036211
+    latitude: 35.7065491,
+    longitude: 139.6360203
   }
 ]
