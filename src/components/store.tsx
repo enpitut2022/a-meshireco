@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea,CardActions,Button } from '@mui/material';
 
 interface StoreProps {
   name: string;
@@ -72,7 +72,7 @@ const store = (props: StoreProps) => {
       <p>ジャンル：{categoryList[props.category]}</p>
       <img src = {props.image}/>
     </div>*/
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 600, minWidth:600 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -97,6 +97,11 @@ const store = (props: StoreProps) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary" href={props.map}>
+          google map
+        </Button>
+      </CardActions>
     </Card>
   )
 };
