@@ -3,7 +3,21 @@ import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
 import './tmpStoreList'
-import {tmpStoreList, store} from './tmpStoreList'
+
+//--------------------------------------------------------------
+//
+// 店のデータを手動で調整できる
+// コメントアウトして切り替えられる
+//
+//--------------------------------------------------------------
+
+// つくばの店ごっちゃデータ
+// import {tmpStoreList, store} from './tmpStoreList'
+
+// 大学の昼休みに行けそうな店のデータ
+import {tmpStoreList, store} from './tmpTsukubaLunchList'
+
+//--------------------------------------------------------------
 
 const storeList: Array<store> = tmpStoreList 
 
