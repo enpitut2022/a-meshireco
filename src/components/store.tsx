@@ -65,14 +65,14 @@ const store = (props: StoreProps) => {
     <div>
       <h2>{props.name}</h2>
       <p>開店時間：{timeToString(props.openTime)} ~ {timeToString(props.closeTime)}</p>
-      <p>価格帯：{priceRangeList[props.price]}円</p>
+      {/* <p>価格帯：{priceRangeList[props.price]}円</p> */}
       <p>
         <a href = {props.map}>GoogleMap</a>
       </p>
       <p>
         <a href = {props.tabeLog}>食べログ</a>
       </p>
-      <p>ジャンル：{categoryList[props.category]}</p>
+      {/* <p>ジャンル：{categoryList[props.category]}</p> */}
       <img src = {props.image}/>
     </div>
   )

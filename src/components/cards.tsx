@@ -12,17 +12,17 @@ import './tmpStoreList'
 //--------------------------------------------------------------
 
 // テスト用店ごっちゃデータ
-// import {storeList, store} from './tmpStoreList'
+import {storeList as tmpStoreList, store} from './tmpStoreList'
 
 // 大学の昼休みに行けそうな店のデータ
 // import {storeList, store} from './tmpTsukubaLunchList'
 
 // ホットペッパーAPIでデータを取得
-import {storeList, store} from './getStoreList'
+// import {storeList, store} from './getStoreList'
 
 //--------------------------------------------------------------
 
-const storeList: Array<store> = storeList
+const storeList: Array<store> = tmpStoreList
 
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
