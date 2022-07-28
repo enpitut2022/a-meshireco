@@ -4,24 +4,28 @@
 
 .cards {
   position: relative;
+  /*justify-content: center;*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto
   
   /* TODO 中央ぞろえ */
 }
 
 .card {
 	position: absolute;
-	top: 0px;
+	/*top: 0px;
 	left: 0px;
 
   /* TODO スマホサイズにする */
-  height: 1000px;
-  width: 1000px;
+  /*height: 100%;
+  width: 100%;
 
-	padding: 10px;
+	/*padding: 10px;*/
 	background-color: orange;
 }
 
 img {
   height: 300px;
-  width: 500px;
+  width: 1000px;
 }
