@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
@@ -21,23 +21,36 @@ import { store, getList } from './getStoreList'
 
 //--------------------------------------------------------------
 
-const storeList: Array<store> = await getList()
-console.log(storeList);
+// const storeList: Array<store> = await getList()
+// console.log(storeList);
 
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
-	for (let i = array.length - 1; i >= 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[array[i], array[j]] = [array[j], array[i]];
-	}
-	return array;
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
-const storeListShaffled: Array<store> = shuffleArray(storeList)
+// const storeListShaffled: Array<store> = shuffleArray(storeList)
 
 // リストの先頭が下に来てしまうため逆順にしておく
-const storeListRiverse: Array<store> = storeListShaffled.reverse()
+// const storeListRiverse: Array<store> = storeListShaffled.reverse()
 
 const cards = () => {
+  const [storeList, setStoreList] = useState<store[]>([])
+  const [storeListRiverse, setStoreListRiverse] = useState<store[]>([])
+
+  useEffect(() => {
+    const func = async () => {
+      let list: Array<store> = await getList()
+      setStoreList(list)
+      list = shuffleArray(list)
+      list = list.reverse()
+      setStoreListRiverse(list)
+    }
+    func()
+  }, [])
 
   const childRef = useMemo<any>(
     () =>
@@ -63,20 +76,20 @@ const cards = () => {
           className='card'
           // TODO リストのリバースをせずcssで実装したい
           // style = {{zIndex: - index}}
-          ref = {childRef[index]}
-          key = {index}
-          onSwipe = {onSwipe}
-          onCardLeftScreen = {() => onCardLeftScreen('fooBar')}
-          preventSwipe = {['right', 'left', 'down']}>
+          ref={childRef[index]}
+          key={index}
+          onSwipe={onSwipe}
+          onCardLeftScreen={() => onCardLeftScreen('fooBar')}
+          preventSwipe={['right', 'left', 'down']}>
           <Store
-            name = {store.name}
-            open = {store.open}
-            close = {store.close}
-            price = {store.price}
-            map = {store.map}
-            hotpepper = {store.hotpepper}
-            image = {store.image}
-            category = {store.category}
+            name={store.name}
+            open={store.open}
+            close={store.close}
+            price={store.price}
+            map={store.map}
+            hotpepper={store.hotpepper}
+            image={store.image}
+            category={store.category}
           ></Store>
         </TinderCard>
       ))}
