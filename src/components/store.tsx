@@ -87,9 +87,10 @@ const store = (props: StoreProps) => {
             {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <p>開店時間：{timeToString(props.openTime)} ~ {timeToString(props.closeTime)}</p>
+            <p>営業時間: {props.open}</p>
+            <p>定休日: {props.close}</p>
             <p>価格帯：{priceRangeList[props.price]}円</p>
-            <p>ジャンル：{categoryList[props.category]}</p>
+            <p>ジャンル：{props.category}</p>
           </Typography>
         </CardContent>
       </CardActionArea>

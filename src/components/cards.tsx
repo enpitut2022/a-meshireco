@@ -35,15 +35,24 @@ const shuffleArray = ([...array]) => {
   return array;
 }
 
-let displayedStoreIndex: number = storeListRiverse.length-1
+let displayedStoreIndex: number = 0
 
-export const GetStoreMapData = () => {
+/*export const GetStoreMapData = () => {
   return storeListRiverse[displayedStoreIndex].map
 }
 
 export const GetStoreDetailData = () => {
   return storeListRiverse[displayedStoreIndex].tabeLog
+}*/
+
+export const GetStoreMapData = () =>{
+  return " "
 }
+
+export const GetStoreDetailData = () =>{
+  return " "
+} 
+
 
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
@@ -60,6 +69,7 @@ const cards = () => {
         lng = p.coords.longitude
         let list: Array<store> = await getList(lat, lng)
         setStoreList(list)
+        displayedStoreIndex = list.length - 1
         list = shuffleArray(list)
         list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
         setStoreListRiverse(list)
@@ -117,11 +127,11 @@ const cards = () => {
             preventSwipe={['right', 'left', 'down']}>
             <Store
               name={store.name}
-              openTime={store.openTime}
-              closeTime={store.closeTime}
+              open={store.open}
+              close={store.close}
               price={store.price}
               map={store.map}
-              tabeLog={store.tabeLog}
+              hotpepper={store.hotpepper}
               image={store.image}
               category={store.category}
             ></Store>
@@ -130,7 +140,7 @@ const cards = () => {
       }
     </Stack>
     /* </div > */ 
-    <div className='cards'>
+    /*<div className='cards'>
       {storeListRiverse.map((store, index) => (
       // @ts-ignore
         <TinderCard
@@ -154,7 +164,7 @@ const cards = () => {
           ></Store>
         </TinderCard>
       ))}
-    </div>
+    </div>*/
   )
 }
 
