@@ -23,6 +23,8 @@ import { tmpStoreList, store } from './tmpTsukubaLunchList'
 
 const storeList: Array<store> = tmpStoreList
 
+
+
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
   for (let i = array.length - 1; i >= 0; i--) {
@@ -35,6 +37,16 @@ const storeListShaffled: Array<store> = shuffleArray(storeList)
 
 // リストの先頭が下に来てしまうため逆順にしておく
 const storeListRiverse: Array<store> = storeListShaffled.reverse()
+
+let displayedStoreIndex: number = storeListRiverse.length-1
+
+const GetStoreMapData = (index: number) => {
+  return storeListRiverse[index].map
+}
+
+const GetStoreDetailData = (index: number) => {
+  return storeListRiverse[index].tabeLog
+}
 
 const cards = () => {
 
@@ -51,7 +63,8 @@ const cards = () => {
 
   // @ts-ignore
   const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + ' left the screen')
+    //console.log(myIdentifier + ' left the screen')
+    displayedStoreIndex--
   }
 
   return (
@@ -66,6 +79,7 @@ const cards = () => {
         className = 'reloadButton'
         onClick={() => {
           window.location.reload();
+          displayedStoreIndex = storeListRiverse.length-1;
         }}
       >
         更新
@@ -96,7 +110,20 @@ const cards = () => {
           </TinderCard>
         ))
       }
-      
+      <Button
+        onClick={() => {
+          window.location.href = GetStoreMapData(displayedStoreIndex);
+        }}
+      >
+        GoogleMap
+      </Button>
+      <Button
+        onClick={() => {
+          window.location.href = GetStoreDetailData(displayedStoreIndex);
+        }}
+      >
+        食べログ
+      </Button>
     </Stack>
     
     /* </div > */ 

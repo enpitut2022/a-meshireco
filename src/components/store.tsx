@@ -87,21 +87,10 @@ const store = (props: StoreProps) => {
           <Typography variant="body2" color="text.secondary">
             <p>開店時間：{timeToString(props.openTime)} ~ {timeToString(props.closeTime)}</p>
             <p>価格帯：{priceRangeList[props.price]}円</p>
-            <p>
-              <a href = {props.map}>GoogleMap</a>
-            </p>
-            <p>
-              <a href={props.tabeLog}>食べログ</a>
-            </p>
             <p>ジャンル：{categoryList[props.category]}</p>
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary" href={props.map}>
-          google map
-        </Button>
-      </CardActions>
     </Card>
   )
 };
