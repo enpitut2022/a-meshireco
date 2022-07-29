@@ -91,7 +91,6 @@ const cards = () => {
 
   // @ts-ignore
   const onCardLeftScreen = (myIdentifier) => {
-    //console.log(myIdentifier + ' left the screen')
     displayedStoreIndex--
   }
   
@@ -139,32 +138,6 @@ const cards = () => {
         ))
       }
     </Stack>
-    /* </div > */ 
-    /*<div className='cards'>
-      {storeListRiverse.map((store, index) => (
-      // @ts-ignore
-        <TinderCard
-          className='card'
-          // TODO リストのリバースをせずcssで実装したい
-          // style = {{zIndex: - index}}
-          ref={childRef[index]}
-          key={index}
-          onSwipe={onSwipe}
-          onCardLeftScreen={() => onCardLeftScreen('fooBar')}
-          preventSwipe={['right', 'left', 'down']}>
-          <Store
-            name={store.name}
-            open={store.open}
-            close={store.close}
-            price={store.price}
-            map={store.map}
-            hotpepper={store.hotpepper}
-            image={store.image}
-            category={store.category}
-          ></Store>
-        </TinderCard>
-      ))}
-    </div>*/
   )
 }
 
