@@ -37,7 +37,7 @@ const getGoogleMapUrl = (latitude: number, longitude: number): string => {
 
 // 現在地で検索URLを生成
 const getUrlByLocation = (latitude: number, longitude: number, range: number = 3, url: string): string => {
-  url += '&lat=' + latitude + '&lng=' + longitude + '&range=' + range;
+  url += '&lat=' + latitude + '&lng=' + longitude + '&range=' + range + '&count=100';
   return url;
 }
 
