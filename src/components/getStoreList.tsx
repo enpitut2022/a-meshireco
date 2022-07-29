@@ -43,7 +43,8 @@ const getUrlByLocation = (latitude: number, longitude: number, range: number = 3
 }
 
 // URLを指定してAPIデータを受け取る
-const getDataByUrl = async (url: string): Promise<string> => {
+// @ts-ignore
+const getDataByUrl = async (url: string) => {
   const config = {
     adapter: axiosJsonpAdapter,
   }
@@ -104,7 +105,7 @@ const getListByData = async (jsonData) => {
 }
 
 // リストを取得
-export const getList = () => {
+export const getList = async () => {
   // テスト現在地
   const latitude: number = 36.1100309
   const longitude: number = 140.1013173
@@ -116,7 +117,8 @@ export const getList = () => {
 
   url = getUrlByLocation(latitude, longitude, range, url)
   console.log({ url })
-  getDataByUrl(url)
+  const res = await getDataByUrl(url)
+  console.log(res)
   // var xmlRes = getDataByUrl(url)
   // console.log(xmlRes)
   // @ts-ignore
