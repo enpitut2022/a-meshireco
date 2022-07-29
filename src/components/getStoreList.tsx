@@ -71,31 +71,31 @@ const getDataByUrl = async (url: string) => {
 // Jsonからリストを返す
 // @ts-ignore
 const getListByData = async (jsonData) => {
-  var storeList: Array<store>
-
+  var storeList: Array<store> = []
   // jsonデータをリストに格納
-  for (var storeData in jsonData.results.shop) {
-    var store: store
-    // @ts-ignore
-    store.name = storeData.name
-    // @ts-ignore
-    store.open = storeData.open
-    // @ts-ignore
-    store.close = storeData.close
-    // @ts-ignore
-    store.price = storeData.budget.code
-    // @ts-ignore
-    store.map = getGoogleMapUrl(Number(storeData.lat), Number(storeData.lng))
-    // @ts-ignore
-    store.hotpepper = storeData.urls.pc
-    // @ts-ignore
-    store.image = storeData.pc.l
-    // @ts-ignore
-    store.category = storeData.genre.name
-    // @ts-ignore
-    store.latitude = storeData.lat
-    // @ts-ignore
-    store.longitude = storeData.lng
+  for (var storeData of jsonData.results.shop) {
+    var store: store = {
+      // @ts-ignore
+      name: storeData.name,
+      // @ts-ignore
+      open: storeData.open,
+      // @ts-ignore
+      close: storeData.close,
+      // @ts-ignore
+      price: storeData.budget.code,
+      // @ts-ignore
+      map: getGoogleMapUrl(Number(storeData.lat), Number(storeData.lng)),
+      // @ts-ignore
+      hotpepper: storeData.urls.pc,
+      // @ts-ignore
+      image: storeData.photo.pc.l,
+      // @ts-ignore
+      category: storeData.genre.name,
+      // @ts-ignore
+      latitude: storeData.lat,
+      // @ts-ignore
+      longitude: storeData.lng
+    }
     // @ts-ignore
     storeList.push(store)
   }
@@ -117,12 +117,8 @@ export const getList = async () => {
 
   url = getUrlByLocation(latitude, longitude, range, url)
   console.log({ url })
-  const res = await getDataByUrl(url)
-  console.log(res)
-  // var xmlRes = getDataByUrl(url)
-  // console.log(xmlRes)
-  // @ts-ignore
-  // var jsonRes = xmlToJson(xmlRes)
-
+  const data = await getDataByUrl(url)
+  const storeList = await getListByData(data)
+  console.log(storeList)
 }
 
