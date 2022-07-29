@@ -36,22 +36,23 @@ const shuffleArray = ([...array]) => {
 }
 
 let displayedStoreIndex: number = 0
+let storeListRiverseCopy: store[] = []
 
-/*export const GetStoreMapData = () => {
-  return storeListRiverse[displayedStoreIndex].map
+export const GetStoreMapData = () => {
+  return storeListRiverseCopy[displayedStoreIndex].map
 }
 
 export const GetStoreDetailData = () => {
-  return storeListRiverse[displayedStoreIndex].tabeLog
-}*/
-
-export const GetStoreMapData = () =>{
-  return " "
+  return storeListRiverseCopy[displayedStoreIndex].hotpepper
 }
 
-export const GetStoreDetailData = () =>{
-  return " "
-} 
+// export const GetStoreMapData = () =>{
+//   return " "
+// }
+
+// export const GetStoreDetailData = () =>{
+//   return " "
+// } 
 
 
 const cards = () => {
@@ -73,6 +74,7 @@ const cards = () => {
         list = shuffleArray(list)
         list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
         setStoreListRiverse(list)
+        storeListRiverseCopy = list
       });
     }
     func()
