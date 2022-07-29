@@ -48,7 +48,8 @@ const getDataByUrl = async (url: string): Promise<string> => {
     adapter: axiosJsonpAdapter,
   }
 
-  const res = await axios.get(url, config)
+  const res = await axios.get(`${url}&format=jsonp`, config)
+  // const res = await axios.get(url, config)
   console.log(res)
   return res.data
 }
