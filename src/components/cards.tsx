@@ -33,18 +33,25 @@ const shuffleArray = ([...array]) => {
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
   const [storeListRiverse, setStoreListRiverse] = useState<store[]>([])
-  
+
   useEffect(() => {
     const func = async () => {
-      let list: Array<store> = await getList(36.1100309, 140.1013173)
-      setStoreList(list)
-      list = shuffleArray(list)
-      list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
-      setStoreListRiverse(list)
+      let lat: number
+      let lng: number
+      // @ts-ignore
+      navigator.geolocation.getCurrentPosition(async (p) => {
+        console.log(p.coords.latitude, p.coords.longitude)
+        lat = p.coords.latitude
+        lng = p.coords.longitude
+        let list: Array<store> = await getList(lat, lng)
+        // let list: Array<store> = await getList(36.1100309, 140.1013173)
+        setStoreList(list)
+        list = shuffleArray(list)
+        list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
+        setStoreListRiverse(list)
+      });
     }
     func()
-    // @ts-ignore
-    navigator.geolocation.getCurrentPosition(p=>console.log(p.coords.latitude, p.coords.longitude));
   }, [])
 
   const childRef = useMemo<any>(
