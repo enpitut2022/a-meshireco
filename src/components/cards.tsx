@@ -4,6 +4,7 @@ import Store from './store'
 import Stack from '@mui/material/Stack';
 import '../index.css'
 import './tmpStoreList'
+import Button from '@mui/material/Button'
 
 //--------------------------------------------------------------
 //
@@ -61,6 +62,14 @@ const cards = () => {
       justifyContent="center"
       spacing={1}
     >
+      <Button 
+        className = 'reloadButton'
+        onClick={() => {
+          window.location.reload();
+        }}
+      >
+        更新
+      </Button>
       {
         storeListRiverse.map((store, index) => (
           // @ts-ignore
@@ -87,7 +96,9 @@ const cards = () => {
           </TinderCard>
         ))
       }
+      
     </Stack>
+    
     /* </div > */ 
   )
 }
