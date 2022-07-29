@@ -112,14 +112,14 @@ const cards = () => {
       }
       <Button
         onClick={() => {
-          window.location.href = GetStoreMapData(displayedStoreIndex);
+          window.open(GetStoreMapData(displayedStoreIndex), '_blank');
         }}
       >
         GoogleMap
       </Button>
       <Button
         onClick={() => {
-          window.location.href = GetStoreDetailData(displayedStoreIndex);
+          window.open(GetStoreDetailData(displayedStoreIndex), '_blank');
         }}
       >
         食べログ
