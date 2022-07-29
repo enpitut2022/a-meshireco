@@ -1,5 +1,7 @@
 // APIで店リストを取得する
 import axios from '../lib/axios';
+// @ts-ignore
+import axiosJsonpAdapter from "axios-jsonp";
 // import xml2js from 'xml2js';
 
 // storeインタフェースの定義
@@ -42,7 +44,11 @@ const getUrlByLocation = (latitude: number, longitude: number, range: number = 3
 
 // URLを指定してAPIデータを受け取る
 const getDataByUrl = async (url: string): Promise<string> => {
-  const res = await axios.get(url)
+  const config = {
+    adapter: axiosJsonpAdapter,
+  }
+
+  const res = await axios.get(url, config)
   console.log(res)
   return res.data
 }
