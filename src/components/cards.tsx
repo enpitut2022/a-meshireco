@@ -40,12 +40,12 @@ const storeListRiverse: Array<store> = storeListShaffled.reverse()
 
 let displayedStoreIndex: number = storeListRiverse.length-1
 
-const GetStoreMapData = (index: number) => {
-  return storeListRiverse[index].map
+export const GetStoreMapData = () => {
+  return storeListRiverse[displayedStoreIndex].map
 }
 
-const GetStoreDetailData = (index: number) => {
-  return storeListRiverse[index].tabeLog
+export const GetStoreDetailData = () => {
+  return storeListRiverse[displayedStoreIndex].tabeLog
 }
 
 const cards = () => {
@@ -75,11 +75,11 @@ const cards = () => {
       justifyContent="center"
       spacing={1}
     >
-      <Button 
-        className = 'reloadButton'
+      <Button
+        className='reloadButton'
         onClick={() => {
           window.location.reload();
-          displayedStoreIndex = storeListRiverse.length-1;
+          displayedStoreIndex = storeListRiverse.length - 1;
         }}
       >
         更新
@@ -110,20 +110,7 @@ const cards = () => {
           </TinderCard>
         ))
       }
-      <Button
-        onClick={() => {
-          window.open(GetStoreMapData(displayedStoreIndex), '_blank');
-        }}
-      >
-        GoogleMap
-      </Button>
-      <Button
-        onClick={() => {
-          window.open(GetStoreDetailData(displayedStoreIndex), '_blank');
-        }}
-      >
-        食べログ
-      </Button>
+      
     </Stack>
     
     /* </div > */ 
