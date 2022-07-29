@@ -46,15 +46,6 @@ export const GetStoreDetailData = () => {
   return storeListRiverseCopy[displayedStoreIndex].hotpepper
 }
 
-// export const GetStoreMapData = () =>{
-//   return " "
-// }
-
-// export const GetStoreDetailData = () =>{
-//   return " "
-// } 
-
-
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
   const [storeListRiverse, setStoreListRiverse] = useState<store[]>([])
@@ -87,9 +78,7 @@ const cards = () => {
   )
 
   // @ts-ignore
-  const onSwipe = (direction) => {
-    console.log('You swiped: ' + direction)
-  }
+  const onSwipe = () => {}
 
   // @ts-ignore
   const onCardLeftScreen = (myIdentifier) => {
