@@ -38,9 +38,6 @@ img {
 }
 
 .title{
-  height: 60px;
+  height: 70px;
   width: 200px;
-  border: 4px solid;
-  border-color: orange;
-  border-radius: 5%;
 }

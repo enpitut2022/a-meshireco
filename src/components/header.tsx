@@ -9,7 +9,7 @@ import '../index.css'
 const header = () => {
   return(
     <div className = 'header'>
-      <img src = './title.png' className = 'title'/>
+      <img src = './titleLogo.png' className = 'title'/>
       <p>上へスワイプして次の店へ</p>
       <IconButton
         size="small"
