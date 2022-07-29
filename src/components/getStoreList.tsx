@@ -100,7 +100,7 @@ export const getList = async (): Promise<Array<store>> => {
 
   // URLを生成
   const apiKey = import.meta.env.VITE_API_KEY;
-  var url = 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=' + apiKey;
+  var url = 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=' + apiKey;
 
   url = getUrlByLocation(latitude, longitude, range, url)
   console.log({ url })
