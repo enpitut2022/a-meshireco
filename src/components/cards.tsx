@@ -21,9 +21,6 @@ import { store, getList } from './getStoreList'
 
 //--------------------------------------------------------------
 
-// const storeList: Array<store> = await getList()
-// console.log(storeList);
-
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
   for (let i = array.length - 1; i >= 0; i--) {
@@ -32,21 +29,17 @@ const shuffleArray = ([...array]) => {
   }
   return array;
 }
-// const storeListShaffled: Array<store> = shuffleArray(storeList)
-
-// リストの先頭が下に来てしまうため逆順にしておく
-// const storeListRiverse: Array<store> = storeListShaffled.reverse()
 
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
   const [storeListRiverse, setStoreListRiverse] = useState<store[]>([])
-
+  
   useEffect(() => {
     const func = async () => {
-      let list: Array<store> = await getList()
+      let list: Array<store> = await getList(36.1100309, 140.1013173)
       setStoreList(list)
       list = shuffleArray(list)
-      list = list.reverse()
+      list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
       setStoreListRiverse(list)
     }
     func()
