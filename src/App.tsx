@@ -11,7 +11,6 @@ function App() {
     <div className = 'App'>
       <Header></Header>
       <Cards></Cards>
-      
     </div>
   )
 }

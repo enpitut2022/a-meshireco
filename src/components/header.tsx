@@ -11,20 +11,22 @@ const header = () => {
       <h1>メシレコ</h1>
       <p>上へスワイプして次の店へ</p>
       <IconButton
+        size="small"
         color = "warning"
         onClick={() => {
           window.open(GetStoreMapData(), '_blank');
         }}
       >
-        <PlaceIcon />
+        <PlaceIcon />ナビ
       </IconButton>
       <IconButton
+        size="small"
         color = "warning"
         onClick={() => {
           window.open(GetStoreDetailData(), '_blank');
         }}
       >
-        <LocalDiningIcon/>
+        <LocalDiningIcon/>くわしく
       </IconButton>
     </div>
   )

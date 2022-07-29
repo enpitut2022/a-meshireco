@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import '../index.css'
 import './tmpStoreList'
 import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton';
+import ReplayIcon from '@mui/icons-material/Replay';
 
 //--------------------------------------------------------------
 //
@@ -75,15 +77,16 @@ const cards = () => {
       justifyContent="center"
       spacing={1}
     >
-      <Button
-        className='reloadButton'
+      <IconButton
+        size="small"
+        color = "warning"
         onClick={() => {
           window.location.reload();
           displayedStoreIndex = storeListRiverse.length - 1;
         }}
       >
-        更新
-      </Button>
+        <ReplayIcon />もう一度探す
+      </IconButton>
       {
         storeListRiverse.map((store, index) => (
           // @ts-ignore
@@ -105,14 +108,11 @@ const cards = () => {
               tabeLog={store.tabeLog}
               image={store.image}
               category={store.category}
-
             ></Store>
           </TinderCard>
         ))
       }
-      
     </Stack>
-    
     /* </div > */ 
   )
 }
