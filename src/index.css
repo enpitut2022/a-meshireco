@@ -12,13 +12,14 @@ body{
   /*justify-content: center;*/
   display: block;
   margin-left: auto;
-  margin-right: auto
-  
+  margin-right: auto;
   /* TODO 中央ぞろえ */
 }
 
 .card {
 	position: absolute;
+  border:solid;
+  border-color: orange;
 	/*top: 0px;
 	left: 0px;
 

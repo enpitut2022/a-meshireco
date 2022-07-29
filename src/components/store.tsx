@@ -72,7 +72,12 @@ const store = (props: StoreProps) => {
       <p>ジャンル：{categoryList[props.category]}</p>
       <img src = {props.image}/>
     </div>*/
-    <Card sx={{ maxWidth: 600, width:1, /*maxHeight: 600*/}}>
+    <Card sx={{
+      width:600, /* maxWidth: 600,maxHeight: 600*/
+      "@media screen and (max-width:600px)":{
+      width:300
+      },
+      }}>
       <CardActionArea>
         <CardMedia
           component="img"
