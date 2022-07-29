@@ -43,6 +43,8 @@ const cards = () => {
       setStoreListRiverse(list)
     }
     func()
+    // @ts-ignore
+    navigator.geolocation.getCurrentPosition(p=>console.log(p.coords.latitude, p.coords.longitude));
   }, [])
 
   const childRef = useMemo<any>(
