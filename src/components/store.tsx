@@ -75,13 +75,13 @@ const store = (props: StoreProps) => {
     <Card sx={{
       width:600, /* maxWidth: 600,maxHeight: 600*/
       "@media screen and (max-width:600px)":{
-      width:300
+      width:200
       },
       }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          /*height="140"*/
           image={props.image}
           alt=" "
         />
