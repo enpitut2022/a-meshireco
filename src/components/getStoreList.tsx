@@ -2,7 +2,6 @@
 import axios from '../lib/axios';
 // @ts-ignore
 import axiosJsonpAdapter from "axios-jsonp";
-// import xml2js from 'xml2js';
 
 // storeインタフェースの定義
 export interface store {
@@ -55,25 +54,13 @@ const getDataByUrl = async (url: string) => {
   return res.data
 }
 
-// XMLをJsonに変換
-// const xmlToJson = (xmlData: string) => {
-//   let jsonData;
-//   const parser = new xml2js.Parser({
-//     async: false,
-//     explicitArray: false
-//   });
-//   parser.parseString(xmlData, (error, json) => {
-//     jsonData = json;
-//   });
-//   return jsonData;
-// }
 
 // Jsonからリストを返す
 // @ts-ignore
-const getListByData = async (jsonData) => {
+const getListByData = async (data) => {
   var storeList: Array<store> = []
   // jsonデータをリストに格納
-  for (var storeData of jsonData.results.shop) {
+  for (var storeData of data.results.shop) {
     var store: store = {
       // @ts-ignore
       name: storeData.name,
