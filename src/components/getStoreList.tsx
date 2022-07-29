@@ -1,5 +1,5 @@
 // APIで店リストを取得する
-import axios from 'axios';
+import axios from '../lib/axios';
 import xml2js from 'xml2js';
 
 // storeインタフェースの定義
