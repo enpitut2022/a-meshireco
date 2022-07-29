@@ -91,11 +91,6 @@ const getListByData = async (data) => {
 
 // リストを取得
 export const getList = async (lat: number, lng: number, range: number = 3): Promise<Array<store>> => {
-  // テスト現在地
-  // const latitude: number = 36.1100309
-  // const longitude: number = 140.1013173
-  // const defaultRange: number = 3
-
   // URLを生成
   const apiKey = import.meta.env.VITE_API_KEY;
   var url = 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=' + apiKey;

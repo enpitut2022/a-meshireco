@@ -44,7 +44,6 @@ const cards = () => {
         lat = p.coords.latitude
         lng = p.coords.longitude
         let list: Array<store> = await getList(lat, lng)
-        // let list: Array<store> = await getList(36.1100309, 140.1013173)
         setStoreList(list)
         list = shuffleArray(list)
         list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
@@ -69,11 +68,11 @@ const cards = () => {
   const onCardLeftScreen = (myIdentifier) => {
     console.log(myIdentifier + ' left the screen')
   }
-
+  
   return (
     <div className='cards'>
       {storeListRiverse.map((store, index) => (
-        // @ts-ignore
+      // @ts-ignore
         <TinderCard
           className='card'
           // TODO リストのリバースをせずcssで実装したい

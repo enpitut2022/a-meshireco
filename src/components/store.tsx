@@ -24,20 +24,6 @@ interface StoreProps {
 //   category: number;
 // }
 
-// // ジャンル一覧
-// // インデックスがID
-// const categoryList: Array<string> = [
-//   '居酒屋',
-//   'カフェ',
-//   'ファミレス',
-//   '麺類',
-//   '学食',
-//   '中華',
-//   'イタリアン',
-//   'フレンチ',
-//   '和食',
-// ]
-
 // 価格帯一覧
 // インデックスがID
 const priceRangeList: { [name: string]: string } = {
