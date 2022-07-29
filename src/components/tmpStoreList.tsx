@@ -9,7 +9,7 @@ export interface store {
   category: number; // 0->居酒屋, 1->カフェ, 2->ファミレス, 3->麺類, 4->学食, 5->中華, 6->イタリアン, 7->フレンチ, 8->和食
 }
 
-export const tmpStoreList: Array<store> = [
+export const storeList: Array<store> = [
   {
     name: '粉とクリーム',
     openTime: 9,

@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Header from './components/header'
 import Cards from './components/cards'
+import Button from '@mui/material/Button';
 
 function App() {
-
   return (
     <div className = 'App'>
       <Header></Header>
