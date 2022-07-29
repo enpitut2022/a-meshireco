@@ -92,7 +92,7 @@ const getListByData = async (data) => {
 }
 
 // リストを取得
-export const getList = async () => {
+export const getList = async (): Promise<Array<store>> => {
   // テスト現在地
   const latitude: number = 36.1100309
   const longitude: number = 140.1013173
@@ -106,6 +106,7 @@ export const getList = async () => {
   console.log({ url })
   const data = await getDataByUrl(url)
   const storeList = await getListByData(data)
-  console.log(storeList)
+
+  return storeList
 }
 

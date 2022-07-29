@@ -2,7 +2,6 @@ import React, { useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from './store'
 import '../index.css'
-import './tmpStoreList'
 
 //--------------------------------------------------------------
 //
@@ -12,17 +11,18 @@ import './tmpStoreList'
 //--------------------------------------------------------------
 
 // テスト用店ごっちゃデータ
-import {storeList as tmpStoreList, store} from './tmpStoreList'
+// import {storeList as tmpStoreList, store} from './tmpStoreList'
 
 // 大学の昼休みに行けそうな店のデータ
 // import {storeList, store} from './tmpTsukubaLunchList'
 
 // ホットペッパーAPIでデータを取得
-// import {storeList, store} from './getStoreList'
+import { store, getList } from './getStoreList'
 
 //--------------------------------------------------------------
 
-const storeList: Array<store> = tmpStoreList
+const storeList: Array<store> = await getList()
+console.log(storeList);
 
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
@@ -70,11 +70,11 @@ const cards = () => {
           preventSwipe = {['right', 'left', 'down']}>
           <Store
             name = {store.name}
-            openTime = {store.openTime}
-            closeTime = {store.closeTime}
+            open = {store.open}
+            close = {store.close}
             price = {store.price}
             map = {store.map}
-            tabeLog = {store.tabeLog}
+            hotpepper = {store.hotpepper}
             image = {store.image}
             category = {store.category}
           ></Store>
