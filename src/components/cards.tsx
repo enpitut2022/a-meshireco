@@ -108,7 +108,7 @@ const cards = () => {
             key={index}
             onSwipe={onSwipe}
             onCardLeftScreen={() => onCardLeftScreen()}
-            preventSwipe={['right', 'left', 'down']}>
+          >
             <Store
               name={store.name}
               open={store.open}
