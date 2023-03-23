@@ -45,6 +45,7 @@ export const GetStoreDetailData = () => {
 }
 
 const cards = () => {
+  const [displayedStoreIndex, setDisplayedStoreIndex] = useState(0);
   const [storeList, setStoreList] = useState<store[]>([])
   const [storeListRiverse, setStoreListRiverse] = useState<store[]>([])
 
@@ -58,7 +59,7 @@ const cards = () => {
         lng = p.coords.longitude
         let list: Array<store> = await getList(lat, lng)
         setStoreList(list)
-        displayedStoreIndex = list.length - 1
+        setDisplayedStoreIndex(list.length - 1)
         list = shuffleArray(list)
         list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
         setStoreListRiverse(list)
@@ -81,16 +82,23 @@ const cards = () => {
       justifyContent="center"
       spacing={1}
     >
-      <IconButton
-        size="small"
-        color="warning"
-        onClick={() => {
-          window.location.reload();
-          displayedStoreIndex = storeListRiverse.length - 1;
-        }}
-      >
-        <ReplayIcon />もう一度探す
-      </IconButton>
+      {
+        displayedStoreIndex >= 0
+          ?
+          <></>
+          : (
+            <IconButton
+              size="small"
+              color="warning"
+              onClick={() => {
+                window.location.reload();
+                setDisplayedStoreIndex(storeListRiverse.length - 1)
+              }}
+            >
+              <ReplayIcon />もう一度探す
+            </IconButton>
+          )
+      }
       {
         storeListRiverse.map((store, index) => (
           // @ts-ignore
@@ -101,7 +109,7 @@ const cards = () => {
             ref={childRef[index]}
             key={index}
             onSwipe={() => { }}
-            onCardLeftScreen={() => displayedStoreIndex--}
+            onCardLeftScreen={() => setDisplayedStoreIndex(prev => prev - 1)}
           >
             <Store
               name={store.name}

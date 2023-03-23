@@ -42,9 +42,11 @@ const timeToString = (time: number) => {
 const store = (props: StoreProps) => {
   return (
     <Card sx={{
-      width: 600,
+      width: 800,
+      height: 800,
       "@media screen and (max-width:600px)": {
-        width: 200
+        width: 300,
+        height: 500,
       },
     }}>
       <CardActionArea>
