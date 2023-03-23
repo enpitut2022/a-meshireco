@@ -27,18 +27,6 @@ const priceRangeList: { [name: string]: string } = {
   B005: '7001 ~ 10000'
 }
 
-
-// 開店時間はnumberで保持しているので文字列に整形
-const timeToString = (time: number) => {
-  var hour = Math.trunc(time)
-  var minute: any = Math.trunc(60 * (time - hour))
-  if (minute == 0) {
-    minute = '00'
-  }
-  var stringTime = hour + ':' + minute
-  return stringTime;
-}
-
 const store = (props: StoreProps) => {
   return (
     <Card sx={{

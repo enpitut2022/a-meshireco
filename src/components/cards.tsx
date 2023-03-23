@@ -5,24 +5,7 @@ import Stack from '@mui/material/Stack';
 import '@/index.css'
 import IconButton from '@mui/material/IconButton';
 import ReplayIcon from '@mui/icons-material/Replay';
-
-//--------------------------------------------------------------
-//
-// 店のデータを手動で調整できる
-// コメントアウトして切り替えられる
-//
-//--------------------------------------------------------------
-
-// テスト用店ごっちゃデータ
-// import {storeList as tmpStoreList, store} from './tmpStoreList'
-
-// 大学の昼休みに行けそうな店のデータ
-// import {storeList, store} from './tmpTsukubaLunchList'
-
-// ホットペッパーAPIでデータを取得
 import { store, getList } from './getStoreList'
-
-//--------------------------------------------------------------
 
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
