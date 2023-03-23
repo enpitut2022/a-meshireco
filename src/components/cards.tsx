@@ -66,16 +66,22 @@ const cards = () => {
         justifyContent="center"
         spacing={1}
       >
-        <IconButton
-          size="small"
-          color="warning"
-          onClick={() => {
-            window.location.reload();
-            setDisplayedStoreIndex(storeList.length - 1);
-          }}
-        >
-          <ReplayIcon />もう一度探す
-        </IconButton>
+        {
+          displayedStoreIndex < 0
+            ?
+            <IconButton
+              size="small"
+              color="warning"
+              onClick={() => {
+                window.location.reload();
+                setDisplayedStoreIndex(storeList.length - 1);
+              }}
+            >
+              <ReplayIcon />もう一度探す
+            </IconButton>
+            :
+            <></>
+        }
         {
           storeList.map((store, index) => (
             // @ts-ignore
