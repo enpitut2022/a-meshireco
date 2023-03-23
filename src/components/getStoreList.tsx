@@ -17,18 +17,6 @@ export interface store {
   longitude?: number;
 }
 
-// 古いやつ
-// interface StoreProps {
-//   name: string;
-//   openTime: number;
-//   closeTime: number;
-//   price: string;
-//   map: string;
-//   tabeLog: string;
-//   image: string;
-//   category: number;
-// }
-
 // 緯度経度からGoogleMapのURL生成
 const getGoogleMapUrl = (latitude: number, longitude: number): string => {
   const url = 'https://www.google.com/maps?q=' + latitude + ',' + longitude;

@@ -3,8 +3,6 @@ import TinderCard from 'react-tinder-card'
 import Store from './store'
 import Stack from '@mui/material/Stack';
 import '../index.css'
-import './tmpStoreList'
-import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton';
 import ReplayIcon from '@mui/icons-material/Replay';
 
@@ -77,16 +75,14 @@ const cards = () => {
     [storeList.length]
   )
 
-  // @ts-ignore
-  const onSwipe = () => {}
+  const onSwipe = () => { }
 
   // @ts-ignore
   const onCardLeftScreen = (myIdentifier) => {
     displayedStoreIndex--
   }
-  
+
   return (
-    // <div className='cards'>
     <Stack
       className='cards'
       direction="row"
@@ -95,7 +91,7 @@ const cards = () => {
     >
       <IconButton
         size="small"
-        color = "warning"
+        color="warning"
         onClick={() => {
           window.location.reload();
           displayedStoreIndex = storeListRiverse.length - 1;
