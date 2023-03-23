@@ -10,7 +10,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 
 // 受け取ったリストをシャッフルする
-const shuffleArray = ([...array]) => {
+const shuffleArray = <T,>([...array]: T[]): T[] => {
   for (let i = array.length - 1; i >= 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -18,11 +18,9 @@ const shuffleArray = ([...array]) => {
   return array;
 }
 
-let displayedStoreIndex: number = 0
-
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
-  const [storeListRiverse, setStoreListRiverse] = useState<store[]>([])
+  const [displayedStoreIndex, setDisplayedStoreIndex] = useState(0);
 
   useEffect(() => {
     const func = async () => {
@@ -32,12 +30,9 @@ const cards = () => {
         console.log(p.coords.latitude, p.coords.longitude)
         lat = p.coords.latitude
         lng = p.coords.longitude
-        let list: Array<store> = await getList(lat, lng)
-        setStoreList(list)
-        displayedStoreIndex = list.length - 1
-        list = shuffleArray(list)
-        list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
-        setStoreListRiverse(list)
+        const list = await getList(lat, lng)
+        setStoreList(shuffleArray(list))
+        setDisplayedStoreIndex(list.length - 1)
       });
     }
     func()
@@ -55,7 +50,7 @@ const cards = () => {
         size="small"
         color="warning"
         onClick={() => {
-          window.open(storeListRiverse[displayedStoreIndex].map, '_blank');
+          window.open(storeList[displayedStoreIndex].map, '_blank');
         }}
       >
         <PlaceIcon />ナビ
@@ -64,7 +59,7 @@ const cards = () => {
         size="small"
         color="warning"
         onClick={() => {
-          window.open(storeListRiverse[displayedStoreIndex].hotpepper, '_blank');
+          window.open(storeList[displayedStoreIndex].hotpepper, '_blank');
         }}
       >
         <LocalDiningIcon />くわしく
@@ -81,13 +76,13 @@ const cards = () => {
           color="warning"
           onClick={() => {
             window.location.reload();
-            displayedStoreIndex = storeListRiverse.length - 1;
+            setDisplayedStoreIndex(storeList.length - 1);
           }}
         >
           <ReplayIcon />もう一度探す
         </IconButton>
         {
-          storeListRiverse.map((store, index) => (
+          storeList.map((store, index) => (
             // @ts-ignore
             <TinderCard
               className='card'
@@ -96,7 +91,7 @@ const cards = () => {
               ref={childRef[index]}
               key={index}
               onSwipe={() => { }}
-              onCardLeftScreen={() => displayedStoreIndex--}
+              onCardLeftScreen={() => setDisplayedStoreIndex(prev => prev - 1)}
             >
               <Store
                 name={store.name}
