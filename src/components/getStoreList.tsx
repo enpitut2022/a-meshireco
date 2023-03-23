@@ -1,7 +1,7 @@
 // APIで店リストを取得する
-import axios from '@/lib/axios';
-// @ts-ignore
-import axiosJsonpAdapter from "axios-jsonp";
+// import axios from '@/lib/axios';
+import axios from "axios-jsonp-pro"
+import store from "./store";
 
 // storeインタフェースの定義
 export interface store {
@@ -22,24 +22,6 @@ const getGoogleMapUrl = (latitude: number, longitude: number): string => {
   const url = 'https://www.google.com/maps?q=' + latitude + ',' + longitude;
   return url;
 }
-
-// 現在地で検索URLを生成
-const getUrlByLocation = (latitude: number, longitude: number, range: number = 3, url: string): string => {
-  url += '&lat=' + latitude + '&lng=' + longitude + '&range=' + range + '&count=100';
-  return url;
-}
-
-// URLを指定してAPIデータを受け取る
-// @ts-ignore
-const getDataByUrl = async (url: string) => {
-  const config = {
-    adapter: axiosJsonpAdapter,
-  }
-
-  const res = await axios.get(`${url}&format=jsonp`, config)
-  return res.data
-}
-
 
 // Jsonからリストを返す
 // @ts-ignore
@@ -77,16 +59,18 @@ const getListByData = async (data) => {
   return storeList
 }
 
-// リストを取得
-export const getList = async (lat: number, lng: number, range: number = 3): Promise<Array<store>> => {
-  // URLを生成
+// 店リストを取得
+export const getList = async (lat: number, lng: number, range: number = 3): Promise<store[]> => {
+  // const apiKey = import.meta.env.VITE_APP_KEY;
   const apiKey = import.meta.env.VITE_API_KEY;
-  var url = 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=' + apiKey;
+  const baseUrl = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${apiKey}&format=jsonp`;
+  const url = `${baseUrl}&lat=${lat}&lng=${lng}&range=${range}&count=100`;
 
-  url = getUrlByLocation(lat, lng, range, url)
-  const data = await getDataByUrl(url)
-  const storeList = await getListByData(data)
+  const res = await axios.jsonp(url)
+  console.info({ res })
 
-  return storeList
+  const storeList = await getListByData(res)
+
+  return storeList;
 }
 
