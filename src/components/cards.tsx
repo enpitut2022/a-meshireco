@@ -52,7 +52,6 @@ const cards = () => {
     const func = async () => {
       let lat: number
       let lng: number
-      // @ts-ignore
       navigator.geolocation.getCurrentPosition(async (p) => {
         console.log(p.coords.latitude, p.coords.longitude)
         lat = p.coords.latitude
@@ -77,8 +76,7 @@ const cards = () => {
 
   const onSwipe = () => { }
 
-  // @ts-ignore
-  const onCardLeftScreen = (myIdentifier) => {
+  const onCardLeftScreen = () => {
     displayedStoreIndex--
   }
 
@@ -109,7 +107,7 @@ const cards = () => {
             ref={childRef[index]}
             key={index}
             onSwipe={onSwipe}
-            onCardLeftScreen={() => onCardLeftScreen('fooBar')}
+            onCardLeftScreen={() => onCardLeftScreen()}
             preventSwipe={['right', 'left', 'down']}>
             <Store
               name={store.name}
