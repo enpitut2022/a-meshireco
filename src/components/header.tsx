@@ -1,8 +1,8 @@
-import { GetStoreMapData, GetStoreDetailData } from './cards'
+import { GetStoreMapData, GetStoreDetailData } from '@/components/cards'
 import IconButton from '@mui/material/IconButton';
 import PlaceIcon from '@mui/icons-material/Place';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import '../index.css'
+import '@/index.css'
 
 const header = () => {
   return (

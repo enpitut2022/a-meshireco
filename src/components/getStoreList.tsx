@@ -1,5 +1,5 @@
 // APIで店リストを取得する
-import axios from '../lib/axios';
+import axios from '@/lib/axios';
 // @ts-ignore
 import axiosJsonpAdapter from "axios-jsonp";
 

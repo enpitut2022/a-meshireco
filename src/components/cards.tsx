@@ -1,8 +1,8 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
-import Store from './store'
+import Store from '@/components/store'
 import Stack from '@mui/material/Stack';
-import '../index.css'
+import '@/index.css'
 import IconButton from '@mui/material/IconButton';
 import ReplayIcon from '@mui/icons-material/Replay';
 
