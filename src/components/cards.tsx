@@ -6,6 +6,8 @@ import '@/index.css'
 import IconButton from '@mui/material/IconButton';
 import ReplayIcon from '@mui/icons-material/Replay';
 import { store, getList } from './getStoreList'
+import PlaceIcon from '@mui/icons-material/Place';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
 
 // 受け取ったリストをシャッフルする
 const shuffleArray = ([...array]) => {
@@ -17,15 +19,6 @@ const shuffleArray = ([...array]) => {
 }
 
 let displayedStoreIndex: number = 0
-let storeListRiverseCopy: store[] = []
-
-export const GetStoreMapData = () => {
-  return storeListRiverseCopy[displayedStoreIndex].map
-}
-
-export const GetStoreDetailData = () => {
-  return storeListRiverseCopy[displayedStoreIndex].hotpepper
-}
 
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
@@ -45,7 +38,6 @@ const cards = () => {
         list = shuffleArray(list)
         list = list.reverse() // リストの先頭が下に来てしまうため逆順にしておく
         setStoreListRiverse(list)
-        storeListRiverseCopy = list
       });
     }
     func()
@@ -58,48 +50,69 @@ const cards = () => {
   )
 
   return (
-    <Stack
-      className='cards'
-      direction="row"
-      justifyContent="center"
-      spacing={1}
-    >
+    <>
       <IconButton
         size="small"
         color="warning"
         onClick={() => {
-          window.location.reload();
-          displayedStoreIndex = storeListRiverse.length - 1;
+          window.open(storeListRiverse[displayedStoreIndex].map, '_blank');
         }}
       >
-        <ReplayIcon />もう一度探す
+        <PlaceIcon />ナビ
       </IconButton>
-      {
-        storeListRiverse.map((store, index) => (
-          // @ts-ignore
-          <TinderCard
-            className='card'
-            // TODO リストのリバースをせずcssで実装したい
-            // style = {{zIndex: - index}}
-            ref={childRef[index]}
-            key={index}
-            onSwipe={() => { }}
-            onCardLeftScreen={() => displayedStoreIndex--}
-          >
-            <Store
-              name={store.name}
-              open={store.open}
-              close={store.close}
-              price={store.price}
-              map={store.map}
-              hotpepper={store.hotpepper}
-              image={store.image}
-              category={store.category}
-            ></Store>
-          </TinderCard>
-        ))
-      }
-    </Stack>
+      <IconButton
+        size="small"
+        color="warning"
+        onClick={() => {
+          window.open(storeListRiverse[displayedStoreIndex].hotpepper, '_blank');
+        }}
+      >
+        <LocalDiningIcon />くわしく
+      </IconButton>
+
+      <Stack
+        className='cards'
+        direction="row"
+        justifyContent="center"
+        spacing={1}
+      >
+        <IconButton
+          size="small"
+          color="warning"
+          onClick={() => {
+            window.location.reload();
+            displayedStoreIndex = storeListRiverse.length - 1;
+          }}
+        >
+          <ReplayIcon />もう一度探す
+        </IconButton>
+        {
+          storeListRiverse.map((store, index) => (
+            // @ts-ignore
+            <TinderCard
+              className='card'
+              // TODO リストのリバースをせずcssで実装したい
+              // style = {{zIndex: - index}}
+              ref={childRef[index]}
+              key={index}
+              onSwipe={() => { }}
+              onCardLeftScreen={() => displayedStoreIndex--}
+            >
+              <Store
+                name={store.name}
+                open={store.open}
+                close={store.close}
+                price={store.price}
+                map={store.map}
+                hotpepper={store.hotpepper}
+                image={store.image}
+                category={store.category}
+              ></Store>
+            </TinderCard>
+          ))
+        }
+      </Stack>
+    </>
   )
 }
 
