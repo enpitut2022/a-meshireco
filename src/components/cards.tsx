@@ -74,12 +74,6 @@ const cards = () => {
     [storeList.length]
   )
 
-  const onSwipe = () => { }
-
-  const onCardLeftScreen = () => {
-    displayedStoreIndex--
-  }
-
   return (
     <Stack
       className='cards'
@@ -106,8 +100,8 @@ const cards = () => {
             // style = {{zIndex: - index}}
             ref={childRef[index]}
             key={index}
-            onSwipe={onSwipe}
-            onCardLeftScreen={() => onCardLeftScreen()}
+            onSwipe={() => { }}
+            onCardLeftScreen={() => displayedStoreIndex--}
           >
             <Store
               name={store.name}
