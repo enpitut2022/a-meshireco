@@ -24,13 +24,8 @@ const cards = () => {
 
   useEffect(() => {
     const func = async () => {
-      let lat: number
-      let lng: number
       navigator.geolocation.getCurrentPosition(async (p) => {
-        console.log(p.coords.latitude, p.coords.longitude)
-        lat = p.coords.latitude
-        lng = p.coords.longitude
-        const list = await getList(lat, lng)
+        const list = await getList(p.coords.latitude, p.coords.longitude)
         setStoreList(shuffleArray(list))
         setDisplayedStoreIndex(list.length - 1)
       });
