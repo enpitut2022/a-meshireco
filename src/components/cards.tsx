@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
 import Store from '@/components/store'
 import Stack from '@mui/material/Stack';
@@ -18,6 +18,7 @@ const shuffleArray = <T,>([...array]: T[]): T[] => {
   return array;
 }
 
+
 const cards = () => {
   const [storeList, setStoreList] = useState<store[]>([])
   const [displayedStoreIndex, setDisplayedStoreIndex] = useState(0);
@@ -32,12 +33,6 @@ const cards = () => {
     }
     func()
   }, [])
-
-  const childRef = useMemo<any>(
-    () =>
-      Array(storeList.length).fill(0).map((i) => React.createRef()),
-    [storeList.length]
-  )
 
   return (
     <>
@@ -87,9 +82,6 @@ const cards = () => {
             // @ts-ignore
             <TinderCard
               className='card'
-              // TODO リストのリバースをせずcssで実装したい
-              // style = {{zIndex: - index}}
-              ref={childRef[index]}
               key={index}
               onSwipe={() => { }}
               onCardLeftScreen={() => setDisplayedStoreIndex(prev => prev - 1)}
