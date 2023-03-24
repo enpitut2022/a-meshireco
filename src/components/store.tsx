@@ -27,15 +27,14 @@ const priceRangeList: { [name: string]: string } = {
   B005: '7001 ~ 10000'
 }
 
+const CardDefaultWidth = window.innerWidth * 0.7;
+const CardDefaultHeight = window.innerHeight * 0.7;
+
 const store = (props: StoreProps) => {
   return (
     <Card sx={{
-      width: 390,
-      height: 750,
-      "@media screen and (max-width:400px)": {
-        width: 350,
-        height: 500,
-      },
+      width: CardDefaultWidth,
+      height: CardDefaultHeight,
     }}>
       <CardActionArea>
         <CardMedia
@@ -43,12 +42,8 @@ const store = (props: StoreProps) => {
           image={props.image}
           alt=" "
           sx={{
-            height: 390,
-            width: 390,
-            "@media screen and (max-width:400px)": {
-              width: 350,
-              height: 200,
-            },
+            width: CardDefaultWidth,
+            height: CardDefaultHeight * 0.6,
           }}
         />
         <CardContent>
