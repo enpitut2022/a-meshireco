@@ -1,11 +1,10 @@
 import './App.css'
-import Header from './components/header'
-import Cards from './components/cards'
-import Button from '@mui/material/Button';
+import Header from '@/components/header'
+import Cards from '@/components/cards'
 
 function App() {
   return (
-    <div className = 'App'>
+    <div className='App'>
       <Header></Header>
       <Cards></Cards>
     </div>

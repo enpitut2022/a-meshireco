@@ -9,32 +9,10 @@ body{
 }
 .cards {
   position: relative;
-  /*justify-content: center;*/
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* TODO 中央ぞろえ */
 }
 
 .card {
 	position: absolute;
-  border:solid;
-  border-color: orange;
-	/*top: 0px;
-	left: 0px;
-
-  /* TODO スマホサイズにする */
-  /*height: 100%;
-  width: 100%;*/
-
-	padding: 10px;
-	background-color: orange;
-  border-radius: 5%;
-}
-
-img {
-  height: 300px;
-  width: 1000px;
 }
 
 .title{
